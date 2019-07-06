@@ -1,0 +1,13 @@
+[Unit]
+Description=Don't Starve Together {{ dst_shard_name }} server
+After=network.target
+
+[Service]
+Type=simple
+User={{ steamcmd_user }}
+Group={{ steamcmd_user }}
+WorkingDirectory={{ dst_install_dir }}bin
+ExecStart=/usr/bin/screen -DmS dst-{{ dst_shard_name }} {{ dst_install_dir }}bin/dontstarve_dedicated_server_nullrenderer -conf_dir {{ dst_shard_name }}
+
+[Install]
+WantedBy=multi-user.target

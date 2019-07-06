@@ -1,0 +1,8 @@
+---
+- name: Reload systemd
+  command: systemctl daemon-reload
+
+- name: Restart DST server
+  service:
+    name: dst-{{ dst_shard_name }}
+    state: restarted
