@@ -37,6 +37,9 @@ dst_offline_server: false
 
 # steam
 dst_disable_cloud: true
+dst_steam_group_id: ""
+dst_steam_group_only: false
+steam_group_admins: false
 
 # misc
 dst_console_enabled: true

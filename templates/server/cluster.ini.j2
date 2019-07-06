@@ -1,0 +1,44 @@
+[gameplay]
+game_mode = {{ dst_game_mode }}
+max_players = {{ dst_max_players }}
+pvp = {{ dst_pvp | lower }}
+pause_when_empty = {{ dst_pause_when_empty | lower }}
+autosaver_enabled= {{ dst_enable_autosaver | lower }}
+enable_vote_kick = {{ dst_enable_vote_kick | lower }}
+
+{% if dst_server_save_slot is defined %}
+server_save_slot = {{ dst_server_save_slot }}
+{% endif %}
+
+
+[network]
+cluster_name = {{ dst_server_name }}
+cluster_description = {{ dst_server_description }}
+cluster_intention = {{ dst_server_intention }}
+cluster_password = {{ dst_server_password }}
+tick_rate = {{ dst_tick_rate }}
+connection_timeout = {{ dst_connection_timeout }}
+offline_server = {{ dst_offline_server | lower }}
+
+[steam]
+disablecloud = {{ dst_disable_cloud | lower }}
+steam_group_id = {{ dst_steam_group_id }}
+steam_group_only = {{ dst_steam_group_only | lower }}
+steam_group_admins = {{ dst_steam_group_admins | lower }}
+
+[misc]
+console_enabled = {{ dst_console_enabled | lower }}
+autocompiler_enabled = {{ dst_autocompiler_enabled | lower }}
+enable_snapshots = {{ dst_enable_snapshots | lower }}
+
+[shard]
+shard_enabled = {{ dst_shard_enable | lower }}
+is_master = {{ dst_shard_is_master | lower }}
+shard_name = {{ dst_shard_name }}
+cluster_key = {{ dst_shard_cluster_key }}
+{% if dst_shard_master_ip %}
+master_ip = {{ dst_shard_master_ip }}
+{% endif %}
+{% if dst_shard_id %}
+shard_id = {{ dst_shard_id }}
+{% endif %}
