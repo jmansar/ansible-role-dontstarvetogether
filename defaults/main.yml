@@ -53,3 +53,13 @@ dst_shard_name: overworld # define the shard name
 dst_shard_cluster_key: change_this_if_you_set_bind_ip
 dst_shard_master_ip: ~ # set the master server IP
 dst_shard_id: "{{ dst_shard_name | to_uuid }}"
+
+# mods
+dst_mods: []
+# Example mods configuration
+# dst_mods:
+#   - steam_id: 123
+#     configuration_options: |
+#       OPTION1=true
+#       OPTION2=false
+

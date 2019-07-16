@@ -24,3 +24,8 @@
   template:
     src: server/worldgenoverride.lua.j2
     dest: '{{ steamcmd_user_home }}.klei/{{ dst_shard_name }}/Cluster_1/Master/worldgenoverride.lua'
+
+- name: configure mods
+  template:
+    src: server/modoverrides.lua.j2
+    dest: '{{ steamcmd_user_home }}.klei/{{ dst_shard_name }}/Cluster_1/Master/modoverrides.lua'

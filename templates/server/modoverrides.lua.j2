@@ -1,0 +1,10 @@
+return {
+{% for mod in dst_mods %}
+    ["workshop-{{mod.steam_id}}"]={
+        {% if mod.configuration_options %}
+        configuration_options={ {{ mod.configuration_options }} },
+        {% endif %}
+        enabled=true
+    },
+{% endfor %}
+}

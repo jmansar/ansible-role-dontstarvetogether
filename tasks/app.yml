@@ -1,19 +1,23 @@
 ---
-
 - name: ensures {{ dst_install_dir }}bin/ directory exists
   file:
-    path: '{{ dst_install_dir }}bin/'
+    path: "{{ dst_install_dir }}bin/"
     state: directory
     recurse: yes
 
 - name: create update script
   template:
     src: update.j2
-    dest: '{{ dst_install_dir }}bin/update'
+    dest: "{{ dst_install_dir }}bin/update"
     mode: 0755
 
 - name: install or update app
-  command: '{{ steamcmd_directory }}steamcmd.sh +runscript {{ dst_install_dir }}bin/update'
+  command: "{{ steamcmd_directory }}steamcmd.sh +runscript {{ dst_install_dir }}bin/update"
   async: 180
   poll: 5
   register: app_update
+
+- name: create mods installation config
+  template:
+    src: dedicated_server_mods_setup.lua.j2
+    dest: "{{ dst_install_dir }}mods/dedicated_server_mods_setup.lua"
