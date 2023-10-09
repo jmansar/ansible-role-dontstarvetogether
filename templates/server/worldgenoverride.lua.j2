@@ -4,6 +4,9 @@ return {
     worldgen_preset = "{{ dst_world_preset }}", -- “RELAXED", "ENDLESS", "SURVIVAL_TOGETHER”, "WILDERNESS", or "LIGHTS_OUT" 
     settings_preset = "{{ dst_world_preset }}",
 	overrides = {
+        {% if dst_world_gen_touchstone is defined %}
+            touchstone="{{ dst_world_gen_touchstone }}",
+        {% endif %}
 	}
 }
 {% else %}
