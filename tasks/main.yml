@@ -1,12 +1,21 @@
 ---
 
-- include: requirements.yml
-- include: packages.yml
-- include: app.yml
-  become: yes
+- name: Import requirements tasks
+  import_tasks: requirements.yml
+
+- name: Import packages tasks 
+  import_tasks: packages.yml
+
+- name: Import app tasks
+  import_tasks: app.yml
+  become: true
   become_user: '{{ steamcmd_user }}'
-- include: server.yml
-  become: yes
+
+- name: Import server tasks
+  import_tasks: server.yml
+  become: true
   become_user: '{{ steamcmd_user }}'
-- include: service.yml
+
+- name: Include service tasks
+  include_tasks: service.yml
   when: dst_server_as_a_service
